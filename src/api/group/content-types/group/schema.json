@@ -1,0 +1,36 @@
+{
+  "kind": "collectionType",
+  "collectionName": "groups",
+  "info": {
+    "singularName": "group",
+    "pluralName": "groups",
+    "displayName": "Group",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "users_permissions_users": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "groups"
+    },
+    "name": {
+      "type": "string",
+      "required": true,
+      "maxLength": 30,
+      "minLength": 2,
+      "unique": true,
+      "default": "Baza Centrum"
+    },
+    "slots": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::slot.slot",
+      "mappedBy": "groups"
+    }
+  }
+}

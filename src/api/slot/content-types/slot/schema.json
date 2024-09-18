@@ -1,0 +1,43 @@
+{
+  "kind": "collectionType",
+  "collectionName": "slots",
+  "info": {
+    "singularName": "slot",
+    "pluralName": "slots",
+    "displayName": "Slot",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "summary": {
+      "type": "string",
+      "default": "2024-01-01 08:00 to 12:00",
+      "regex": "[0-9]{4}-[0-9]{2}-[0-9]{2} [0-9]{2}:[0-9]{2} to [0-9]{2}:[0-9]{2}",
+      "required": true,
+      "unique": true
+    },
+    "date": {
+      "type": "date",
+      "required": true
+    },
+    "timeStart": {
+      "type": "time",
+      "required": true
+    },
+    "lengthMinutes": {
+      "type": "integer",
+      "min": 1,
+      "required": true,
+      "max": 300
+    },
+    "groups": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::group.group",
+      "inversedBy": "slots"
+    }
+  }
+}
